@@ -11,10 +11,7 @@
     <Mul :getInput1="getInput1" :getInput2="getInput2" @getMulResult="getResult"></Mul>
     <Div :getInput1="getInput1" :getInput2="getInput2" @getDivResult="getResult"></Div>    
 
-    <h2>Result:<p id="result_id"></p></h2>
-
-
-    
+    <h2>Result:<p id="result_id">{{result}}</p></h2>
   </div>
 </template>
 
@@ -31,15 +28,16 @@ export default {
     return{
       getInput1: "",
       getInput2: "",
-      
+      result: "",
       
     }
   },
 
   methods:{
-    getResult(result){
-      document.getElementById("result_id").innerHTML = `<span>${result}</span>`
-      console.log("This is the result: "+ result)
+    getResult(data){
+     // document.getElementById("result_id").innerHTML = `<span>${result}</span>`
+      this.result = data
+      console.log("This is the result: "+ data)
     }
   },
 
